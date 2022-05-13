@@ -2,9 +2,121 @@
     padding: 0;
     margin: 0; 
     box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background-image: linear-gradient(155deg, rgba(66,65,68,1) 0%, rgba(53,52,56,1) 32%, rgba(5,5,5,1) 80%);
+    background-image: linear-gradient(155deg, rgba(77,83,88,1) 0%, rgba(60,66,71,1) 32%, rgba(42,46,52,1) 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.calculator {
+    display: inline-block;
+    width: 300px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px 13px 25px 0px rgba(26, 28, 30, 1);
+    -moz-box-shadow: 6px 13px 25px 0px rgba(26, 28, 30, 1);
+    box-shadow: 6px 13px 25px 0px rgba(26, 28, 30, 1);
+    background-color: white;
+}
+
+.display {
+    height: 100px;
+    background-color: rgb(251, 249, 249);
+    margin-bottom: 20px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 4px 3px 1px 0px rgba(225, 225, 225, 1);
+    -moz-box-shadow: inset 4px 3px 1px 0px rgba(225, 225, 225, 1);
+    box-shadow: inset 4px 3px 1px 0px rgba(225, 225, 225, 1);
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+
+.current_number {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 50px);
+    gap: 8px;
+}
+
+.equals {
+    grid-row: -1/-3;
+    grid-column: -1/-2;
+}
+
+.buttons div {
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 4px 3px 27px 0px rgba(200, 197, 197, 1);
+    -moz-box-shadow: 4px 3px 27px 0px rgba(200, 197, 197, 1);
+    box-shadow: 4px 3px 27px 0px rgba(200, 197, 197, 1);
+    background-color: rgba( 255, 255, 255, 0.15 );
+    cursor: pointer;
+    transition: ease-in-out;
+}
+
+.buttons div:active {
+    -webkit-box-shadow: inset 4px 3px 6px 0px rgba(200, 197, 197, 1);
+    -moz-box-shadow: inset 4px 3px 6px 0px rgba(200, 197, 197, 1);
+    box-shadow: inset 4px 3px 6px 0px rgba(200, 197, 197, 1);
+}
+
+.buttons div:first-child, .buttons div:nth-child(2), .buttons div:nth-child(3), .buttons div:nth-child(4), .buttons div:nth-child(8), .buttons div:nth-child(12), .buttons div:nth-child(16) {
+    background: black;
+    color: white;
+    -webkit-box-shadow: 4px 3px 6px 0px rgba(93, 93, 93, 1);
+-moz-box-shadow: 4px 3px 6px 0px rgba(93, 93, 93, 1);
+box-shadow: 4px 3px 6px 0px rgba(93, 93, 93, 1)
+}
+
+.buttons div:first-child:active, .buttons div:nth-child(2):active, .buttons div:nth-child(3):active, .buttons div:nth-child(4):active, .buttons div:nth-child(8):active, .buttons div:nth-child(12):active, .buttons div:nth-child(16):active {
+    box-shadow: none;
+}
+
+.calculation_history {
+    height: 450px;  
+    width: 150px;
+    margin-left: 20px;
+    padding: 10px;
+    text-align: center;
+    background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 rgba(51, 52, 66, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.064);
+}
+
+.calculation_clear {
+    border-radius: 25px;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: rgb(24, 22, 22);
+    color: rgb(255, 253, 253);
+
+}
+
+
+.calculation_previous{
+    margin-top: 10px;
+    list-style: none;
+    letter-spacing: 1px;
+}
+
