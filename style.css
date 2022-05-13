@@ -110,6 +110,7 @@ box-shadow: 4px 3px 6px 0px rgba(93, 93, 93, 1)
     padding: 5px;
     background-color: rgb(24, 22, 22);
     color: rgb(255, 253, 253);
+    cursor: pointer;
 
 }
 
