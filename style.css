@@ -39,6 +39,7 @@ body {
     justify-content: space-between;
     padding: 10px;
     letter-spacing: 1px;
+    overflow: scroll;
 }
 
 .current_number {
@@ -113,7 +114,6 @@ box-shadow: 4px 3px 6px 0px rgba(93, 93, 93, 1)
     cursor: pointer;
 
 }
-
 
 .calculation_previous{
     margin-top: 10px;

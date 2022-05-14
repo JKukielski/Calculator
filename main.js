@@ -3,21 +3,77 @@ const clearBtn = document.querySelector('.clear');
 const operatorBtn = document.querySelectorAll('.operator');
 const equalsBtn = document.querySelector('.equals');
 const clearCalcHistory = document.querySelector('.calculation_clear');
-
+const currentNumber = document.querySelector('.current_number');
+const previousNumber = document.querySelector('.previous_number');
+const operatingSign = document.querySelector('.operating_sign');
 
 let result = '';
 
-clearBtn.addEventListener('click', () => {
-    if(document.querySelector('.display').textContent === '') {
-        return;
-    } else {
-        document.querySelector('.display').textContent = '';
-    }
-   
-});
-
 numberBtn.forEach((number) => {
     number.addEventListener('click', (e) => {
-        document.querySelector('.current_number').innerText += e.target.innerText;
+        
+        if(e.target.innerText === '.' && currentNumber.innerText.includes('.')) {
+            return;
+        };
+        if(e.target.innerText === '.' && currentNumber.innerText === '') {
+            return currentNumber.innerText = '.0';
+        }
+        currentNumber.innerText += e.target.innerText;
     });
+  
+});
+
+operatorBtn.forEach((operator) => {
+    operator.addEventListener('click', e => {
+        if(currentNumber.innerText === '' && e.target.innerText === '-') {
+            currentNumber.innerText = e.target.innerText;
+            return;
+        } else if(currentNumber.innerText === '') {
+            return;
+        }
+        previousNumber.innerText = currentNumber.innerText;
+        operatingSign.innerText = e.target.innerText;
+        currentNumber.innerText = '';
+    });
+}); 
+
+equalsBtn.addEventListener('click', e => {
+    if(previousNumber.innerText === '' || currentNumber.innerText === '') {
+        return;
+    } 
+    let a = Number(currentNumber.innerText);
+    let b = Number(previousNumber.innerText);
+    let operator = operatingSign.innerText;
+
+    switch(operator) {
+        case '+':
+            result = a + b;
+            break;
+        case '-':
+            result = b - a;
+            break;
+        case '÷':
+            result = b / a;
+            break;
+        case 'x':
+            result = a * b;
+            break;
+        case '2^':
+            result = b ** a;
+            break;
+    }
+    currentNumber.innerText = result;
+    previousNumber.innerText = '';
+    operatingSign.innerText = '';
+
+});
+
+clearBtn.addEventListener('click', () => {
+    if(currentNumber.innerText !== '' || previousNumber.innerText !== '' || operatingSign.innerText !== '') {
+        currentNumber.innerText = '';
+        previousNumber.innerText = '';
+        operatingSign.innerText = '';
+    } else {
+        return;
+    }
 });
