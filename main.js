@@ -3,6 +3,7 @@ const clearBtn = document.querySelector('.clear');
 const operatorBtn = document.querySelectorAll('.operator');
 const equalsBtn = document.querySelector('.equals');
 const clearCalcHistory = document.querySelector('.calculation_clear');
+const calcHistory = document.querySelector('.calculation_previous')
 const currentNumber = document.querySelector('.current_number');
 const previousNumber = document.querySelector('.previous_number');
 const operatingSign = document.querySelector('.operating_sign');
@@ -62,18 +63,25 @@ equalsBtn.addEventListener('click', e => {
             result = b ** a;
             break;
     }
+
+    const newResult = document.createElement('li');
+    newResult.innerText = `${previousNumber.innerText} ${operatingSign.innerText} ${currentNumber.innerText} = ${result}`
+    calcHistory.appendChild(newResult);
+
     currentNumber.innerText = result;
     previousNumber.innerText = '';
     operatingSign.innerText = '';
 
+    
 });
 
 clearBtn.addEventListener('click', () => {
-    if(currentNumber.innerText !== '' || previousNumber.innerText !== '' || operatingSign.innerText !== '') {
         currentNumber.innerText = '';
         previousNumber.innerText = '';
         operatingSign.innerText = '';
-    } else {
-        return;
-    }
+
+});
+
+clearCalcHistory.addEventListener('click', () => {
+    calcHistory.textContent = '';
 });
