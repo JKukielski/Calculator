@@ -105,6 +105,10 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.064);
 }
 
+li {
+    margin-top: 5px;
+}
+
 .calculation_clear {
     border-radius: 25px;
     margin: 5px 0;
@@ -112,6 +116,7 @@ body {
     background-color: rgb(24, 22, 22);
     color: rgb(255, 253, 253);
     cursor: pointer;
+    
 
 }
 

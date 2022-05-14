@@ -84,4 +84,5 @@ clearBtn.addEventListener('click', () => {
 
 clearCalcHistory.addEventListener('click', () => {
     calcHistory.textContent = '';
+    
 });
